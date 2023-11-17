@@ -9,13 +9,14 @@ html {
 }
 
 .page {
-  inline-size: 1200px;
-  block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
   font-size: 18px;
   background-color: #1b1919;
+  inline-size: 1200px;
+  block-size: 100%;
 }
 
 h1,
@@ -27,7 +28,8 @@ ul,
 ol,
 li,
 blockquote,
-fieldset {
+fieldset,
+button {
   margin: 0;
   padding: 0;
 }
@@ -35,4 +37,307 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  padding: 133px 10px 133px 30px; /*10px справа из-за скролла в 20px*/
+}
+
+/* ====================== ЛЕВЫЙ БЛОК ======================== */
+
+.result {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-block-end: 3px; /*для того, чтобы кнопки в состоянии focus
+  с outline оказались на одном уровне*/
+}
+
+.result__video-container {
+  inline-size: 711px;
+  block-size: 386px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  inline-size: 711px;
+  block-size: 54px;
+}
+
+.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 5px;
+  border: none;
+}
+
+.search-form__fieldset:nth-child(2) {
+  padding-block-end: 5px;
+  inline-size: 212px;
+}
+
+.search-form__fieldset-title {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-form__label-text {
+  font-weight: 400;
+}
+
+.search-form__textfield {
+  border-top: 1px solid #fff;
+  border-right: none;
+  border-bottom: 1px solid #fff;
+  border-left: none;
+  padding: 2.5px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: transparent;
+  inline-size: 225px;
+  appearance: none;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+  width: fit-content;
+}
+
+.search-form__pseudo-checkbox {
+  display: block;
+  border: 1px solid #fff;
+  inline-size: 19px;
+  block-size: 19px;
+}
+
+input[type="checkbox"]:checked + span {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+  background-color: #fff;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-form__submit-button {
+  margin-block-start: 20px;
+  inline-size: 194px;
+  block-size: 34px;
+}
+
+/* ==================== ПРАВЫЙ БЛОК ===================== */
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  inline-size: 420px;
+}
+
+.title {
+  padding-block-end: 26px;
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px; /*28*/
+  overflow: auto;
+  inline-size: 100%;
+  block-size: 298px;
+}
+
+.content__card-link {
+  display: block; /*чтобы применился current*/
+  margin: 3px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.content__card-link_current {
+  margin: 3px;
+  background-color: #545050;
+}
+
+.content__video-card {
+  display: flex;
+  justify-content: space-between;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  /*gap: 6px; убран, т.к. из-за вылезающего за границы шрифта появляется лишний зазор*/
+}
+
+.content__video-card-title {
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: uppercase;
+  /*line-height: 100%; убрано, т.к. появляется горб в состоянии focus*/
+}
+
+.content__video-card-description {
+  line-height: 90%;
+}
+
+.content__video-card-thumbnail {
+  inline-size: 194px;
+  block-size: 103px;
+}
+
+.more-button {
+  margin: 3px; /*для обводки в состоянии focus*/
+  inline-size: 392px; /*уменьшено для обводки в состоянии focus*/
+  block-size: 34px;
+}
+
+/* =================== СОСТОЯНИЯ ==================== */
+
+/* ------ focus-visible ------ */
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+}
+
+/* ------ focus ------ */
+
+.search-form__label:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.content__card-link:focus {
+  border: none;
+}
+
+/* ------ hover ------ */
+
+.search-form__textfield:hover {
+  text-decoration: none;
+}
+
+.search-form__label:hover:has(.search-form__checkbox) {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.search-form__label-text:hover {
+  cursor: url("../images/image\ 51.png"), auto;
+}
+
+.button:hover {
+  text-decoration-line: underline;
+  cursor: url("../images/image\ 51.png"), auto;
+}
+
+.content__card-link:hover {
+  text-decoration-line: underline;
+  text-underline-position: under;
+  cursor: url("../images/image\ 51.png"), auto;
+}
+
+/* ------ active ------ */
+
+input[type="checkbox"]:active + span {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+  background-color: #fff;
+}
+
+.search-form__label-text:active {
+  text-decoration: none;
+}
+
+.search-form__label:active {
+  outline: none;
+}
+
+.search-form__textfield:active {
+  border: 1px solid #fff;
+  outline: none;
+}
+
+.button:active {
+  outline: none;
+  text-decoration: none;
+  background-color: #545050;
+}
+
+.content__card-link:active {
+  text-decoration: none;
+  background-color: #545050;
 }
