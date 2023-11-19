@@ -57,7 +57,7 @@ ol {
   justify-content: center;
   align-items: flex-end;
   gap: 30px;
-  padding: 133px 12px 133px 30px; /*12px справа из-за скролла в 18px*/
+  padding-inline-start: 18px; /*для компенсации скролла в 18px*/
 }
 
 /* ====================== ЛЕВЫЙ БЛОК ======================== */
